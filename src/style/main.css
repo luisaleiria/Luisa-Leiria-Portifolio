@@ -137,13 +137,13 @@ body {
   height: clamp(18rem, 30vw, 26rem);  /* aumentado: altura responsiva */
   flex-shrink: 0;
   min-width: 18rem;  /* tamanho mínimo aumentado */
-}
 
+}
 /* o quadrado atrás da foto */
 .foto-bg {
   position: absolute;
   top: clamp(-6.5rem, -9vw, -6.5rem);      /* ajustado para o novo tamanho */
-  left: 0;        /* alinha à esquerda */
+  left: 2rem;        /* alinha à esquerda */
   width: clamp(15rem, 25vw, 22rem);   /* aumentado: largura responsiva */
   height: clamp(15rem, 25vw, 22rem);  /* aumentado: altura responsiva */
   background: #B37D52; /* cor do retângulo do Figma */
@@ -154,7 +154,7 @@ body {
 .fotoPerfil {
   position: relative;
   top: clamp(-4.5rem, -6vw, -5rem);    /* posição responsiva */
-  left: clamp(-2rem, -4vw, -2.5rem); /* posição responsiva */
+  left: clamp(0, -4vw, -2.5rem);   /* posição responsiva */
   width: clamp(15rem, 25vw, 22rem);   /* largura responsiva */
   height: clamp(15rem, 25vw, 22rem);  /* altura responsiva */
   object-fit: cover;
