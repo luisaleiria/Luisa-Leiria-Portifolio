@@ -72,7 +72,7 @@ body {
     padding: 0px 0;
     display: flex;
     flex-direction: column;
-    gap: 0px;               /* Espaço entre títulos e conteúdo */
+    gap: 2rem;               /* Espaço entre títulos e conteúdo */
 }
 
 .intro-titles {
@@ -120,11 +120,11 @@ body {
 .paragrafos p {
   margin: 0 0 1rem;
   font-family: "Instrument Sans", sans-serif;
-  font-size: clamp(1rem, 2.5vw, 1.25rem);  /* texto responsivo */
+  font-size: clamp(1.3rem, 2.5vw, 1.25rem);  /* texto responsivo */
   font-weight: 500;
-  line-height: 1.5;        
+  line-height: 1.8;        
   color: #472D46;
-  letter-spacing: 0.019rem; 
+  letter-spacing: 0.03rem; 
 }
 
 .foto-wrapper {
@@ -163,8 +163,8 @@ body {
   right: 50%;
   width: 100vw;
   height: 53.125rem;
-  margin: -2rem -50vw 0;   /* puxa pra cobrir as laterais */
-  padding: 10rem 0 0;      /* 10rem em cima, igual era */
+  margin: 0 -50vw 0;   /* puxa pra cobrir as laterais */
+  padding: 5rem 0 0;      /* 10rem em cima, igual era */
   background: linear-gradient(
     180deg,
     rgba(222,222,222,0.40) 0%,
@@ -180,19 +180,25 @@ body {
 }
 
 .sobre-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 2.75rem;
+    display: flex;
+    align-items: flex-start; /* alinha o topo dos elementos */
+    gap: 2.75rem;
+    max-width: 75.25rem;
+    margin: 0 auto;
+    padding: 0 1rem;   /* preserva a margem interna */
+    padding-top: 2rem; /* espaçamento superior */
+}
+
+.sobre-body {
   max-width: 75.25rem;
   margin: 0 auto;
-  padding: 0 1rem;   /* preserva a margem interna */
+  padding: 0 1rem;   /* alinhado com sobre-header */
 }
 
 
 .falandoSobreMim {
   margin: 0;
   width: 25rem;
-  height: 10.44rem;
   font-family: "Instrument Sans", sans-serif;
   font-size: 2.5rem;
   font-weight: 700;
@@ -202,41 +208,40 @@ body {
   flex-shrink: 0;
 }
 .texto1 {
-  margin: 0;
+  margin: 0;  /* remove margin para alinhar perfeitamente */
+  padding-right: 1.5rem;
   width: 47.125rem;
-  height: 16.875rem;
   font-family: "Instrument Sans", sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.8;
   color: #472D46;
-  letter-spacing: 0.019rem; /* 0.3px */
+  letter-spacing: 0.03rem; /* 0.3px */
 }
 
 .texto2{
-    padding-left: 1.5rem;
+    padding-left: 0;  /* remove padding para alinhar com sobre-body */
     padding-right: 1.5rem;
-    margin: 0;
     font-family: "Instrument Sans", sans-serif;
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 500;
-    line-height: 1.5;
+    line-height: 1.8;
     color: #472D46;
-    letter-spacing: 0.019rem;
-    margin-top: -5rem;
+    letter-spacing: 0.03rem;
+    margin-top: 2rem;
 }
 
 .texto3{
-    padding-top: 1.25rem;
-    padding-left: 1.5rem;
+    padding-top: .5rem;
+    padding-left: 0;  /* remove padding para alinhar com sobre-body */
     padding-right: 1.5rem;
     margin: 0;
     font-family: "Instrument Sans", sans-serif;
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 500;
-    line-height: 1.5;
+    line-height: 1.8;
     color: #472D46;
-    letter-spacing: 0.019rem;
+    letter-spacing: 0.03rem;
 }
 
 .entreContato{
@@ -257,16 +262,18 @@ body {
     transform: scale(0.8); /* reduz o tamanho dos ícones */
 }
 
+
 .projetos h2 {
     position: relative;
     display: block;
     font-family: "Instrument Sans";
-    font-size: 1.875rem;             
+    font-size: 2.5rem;             
     font-weight: 700;          
     color: #752B71;
     text-shadow: 0px .25rem .25rem rgba(0, 0, 0, 0.25);
     margin-top: 1.5rem;      
-    padding-bottom: 1rem;  
+    padding-bottom: 1rem;
+    margin-bottom: 3rem;  /* aumenta o espaçamento entre o título e os projetos */
     text-align: center;
 }
 
@@ -276,9 +283,92 @@ body {
     bottom: 0;                   /* alinhado à base do h1 */
     left: 50%;
     transform: translateX(-50%);
-    width: 9.375rem; /* largura do sublinhado */
+    width: 10rem; /* largura do sublinhado */
     height: 0.25rem;
     background: #DB8A49;
+}
+
+.projetos{
+    position: relative;
+    margin-top: 8rem;
+}
+.projeto{ 
+    position: relative;
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between; 
+    padding-left: 5rem; 
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.projeto::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75rem;
+    border-bottom: 0.032rem solid #8B8A89;
+}
+
+.conteudo{
+    position: relative;
+    gap: 2rem;
+}
+
+.projetos .conteudo{
+    flex: 1;     /* ocupa o espaço disponível */
+    padding-left: 0;  /* remove padding-left para alinhar à esquerda */
+    padding-right: 2rem;  /* espaçamento entre texto e imagem */
+}
+
+.conteudo .titulo{
+    position: relative;
+    display: inline-block;
+    align-items: center;
+    margin: 1rem 0 0.25rem;
+    color: #5D5A5A;
+    font-family: "Open Sans Condensed";
+    font-size: 1.5rem;
+    transform: scaleY(1.2); 
+    line-height: 1.2;
+    font-style: normal;
+    font-weight: 700;
+    padding-top: 1rem;
+}
+
+.conteudo .descricao{
+    position: relative;
+    margin-bottom: 2rem;
+    width: 44rem;
+    display: block;
+    margin-top: -.6rem;
+    color: #000;
+    font-family: "Open Sans Condensed";
+    font-size: 1.3rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-top: 1.5rem;
+}
+
+.projeto .imagem {
+    padding-top: 3.5rem;
+    width: 30rem ;
+    height: 15rem;             /* a altura virá do próprio img ou aspect-ratio */
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding-right: 80px;  /* imagem à direita com row-reverse */
+}
+
+.projeto .imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;              /* elimina gaps inesperados em alguns navegadores */
 }
 
 /* ============ MEDIA QUERIES PARA RESPONSIVIDADE ============ */
