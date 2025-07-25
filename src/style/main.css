@@ -162,25 +162,26 @@ body {
 }
 
 .sobreMim {
-  position: relative;
-  left: 50%;
-  right: 50%;
-  width: 100vw;
-  height: 53.125rem;
-  margin: 0 -50vw 0;   /* puxa pra cobrir as laterais */
-  padding: 5rem 0 0;      /* 10rem em cima, igual era */
-  background: linear-gradient(
-    180deg,
-    rgba(222,222,222,0.40) 0%,
-    rgba(197,185,197,0.40) 16.62%,
-    rgba(172,148,171,0.40) 25.56%,
-    rgba(154,126,153,0.40) 38.17%,
-    rgba(136,104,135,0.40) 50.19%,
-    rgba(156,86,152,0.40) 77.75%,
-    rgba(222,222,222,0.40) 100%
-  );
-  z-index: -10;
-  margin-bottom: 3rem;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    width: 100vw;
+    /*height: 53.125rem; */
+    margin: 0 -50vw 0;   /* puxa pra cobrir as laterais */
+    padding: 5rem 0 ;      /* 10rem em cima, igual era */
+    background: linear-gradient(
+        180deg,
+        rgba(222,222,222,0.40) 0%,
+        rgba(197,185,197,0.40) 16.62%,
+        rgba(172,148,171,0.40) 25.56%,
+        rgba(154,126,153,0.40) 38.17%,
+        rgba(136,104,135,0.40) 50.19%,
+        rgba(156,86,152,0.40) 77.75%,
+        rgba(222,222,222,0.40) 100%
+    );
+    z-index: -10;
+    /* margin-bottom: 3rem; */
+    margin-bottom: 0;
 }
 
 .sobre-header {
@@ -197,6 +198,57 @@ body {
   max-width: 75.25rem;
   margin: 0 auto;
   padding: 0 1rem;   /* alinhado com sobre-header */
+}
+
+/* 2) Nova seção de redes sociais */
+.redes-sociais-section {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: -4rem;
+}
+.redesSociais {
+    display: flex;
+    justify-content: center;
+    gap: 2.75rem;
+    transform: scale(2);
+}
+
+.redes-sociais-section .sobre-body {
+    max-width: 75.25rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* 4) Layout dos ícones */
+.redes-sociais-section .redesSociais {
+    display: flex;
+    justify-content: center;
+    gap: 2.75rem;
+    flex-wrap: wrap;
+    transform: none !important;
+}
+
+/* 5) Links circulares com hover puro em CSS */
+.redes-sociais-section .redesSociais a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem !important;
+    height: 5rem !important;
+    border-radius: 50%;
+    transition: background 0.3s, transform 0.3s;
+}
+
+/* Se quiser cores de hover específicas por rede: */
+.redes-sociais-section .whatsapp:hover   { background: rgba(37,211,102,0.1); }
+.redes-sociais-section .linkedin:hover   { background: rgba(0,119,181,0.1); }
+.redes-sociais-section .instagram:hover  { background: rgba(228, 64, 209, 0.1); }
+.redes-sociais-section .github:hover     { background: rgba(51,51,51,0.1); }
+
+.redes-sociais-section .redesSociais img {
+    width: 3rem;
+    height: 3rem;
+    pointer-events: none; /* Pra garantir que o <a> receba o clique */
 }
 
 
@@ -258,14 +310,6 @@ body {
     font-weight: 700;
     line-height: normal;
 }
-
-.redesSociais{
-    display: flex;
-    justify-content: center;
-    gap: 2.75rem; /* espaçamento entre os ícones */
-    transform: scale(0.8); /* reduz o tamanho dos ícones */
-}
-
 
 .projetos h2 {
     position: relative;
@@ -356,16 +400,16 @@ body {
     line-height: normal;
     margin-top: 1.5rem;
 }
-
 .projeto .imagem {
-    padding-top: 3.5rem;
-    width: 30rem ;
-    height: 15rem;             /* a altura virá do próprio img ou aspect-ratio */
+    padding-top: 1rem;
+    width: 40rem ;
+    height: 20rem;             /* a altura virá do próprio img ou aspect-ratio */
     display: flex;
     position: relative;
     justify-content: center;
     align-items: center;
-    padding-right: 80px;  /* imagem à direita com row-reverse */
+    padding-right: 5rem;  /* imagem à direita com row-reverse */
+    padding-bottom: 2rem;
 }
 
 .projeto .imagem img {
@@ -373,6 +417,17 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;              /* elimina gaps inesperados em alguns navegadores */
+}
+
+.imagem-com-sombra {
+  border-radius: 12px; /* bordas arredondadas */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4); /* sombra suave */
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.imagem-com-sombra:hover {
+  transform: scale(1.02); /* efeito sutil ao passar o mouse */
 }
 
 .contato{
