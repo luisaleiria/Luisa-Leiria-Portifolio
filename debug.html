@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Debug Menu Hambúrguer</title>
+  <style>
+    body {
+      background-color: #D9D9D9;
+      margin: 0;
+      padding: 0;
+      padding-top: 100px;
+    }
+
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 80px;
+      background: #D9D9D9;
+      box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+      z-index: 100;
+    }
+
+    .header .container {
+      max-width: 1204px;
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+
+    .logo {
+      font-family: Arial, sans-serif;
+      font-size: 25px;
+      font-weight: bold;
+      color: #752B71;
+    }
+
+    .textosHead {
+      display: flex;
+      gap: 40px;
+    }
+
+    .textosHead a {
+      color: #A2591F;
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 2rem;
+      height: 2rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 200;
+    }
+
+    .hamburger-line {
+      width: 2rem;
+      height: 0.25rem;
+      background: #A2591F;
+      border-radius: 0.125rem;
+      transition: all 0.3s linear;
+    }
+
+    .menu-toggle.active .hamburger-line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active .hamburger-line:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .header .container {
+        padding: 0 15px;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .textosHead {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #D9D9D9;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+        z-index: 150;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      .textosHead.active {
+        max-height: 300px;
+        opacity: 1;
+      }
+
+      .textosHead a {
+        font-size: 1rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(162, 89, 31, 0.2);
+        text-align: center;
+      }
+
+      .textosHead a:last-child {
+        border-bottom: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <span class="logo">LUISA LEIRIA</span>
+      
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      
+      <nav class="textosHead" id="navigation">
+        <a href="#home">home</a>
+        <a href="#sobre">sobre mim</a>
+        <a href="#projetos">projetos</a>
+        <a href="#contato">contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Teste do Menu Hambúrguer</h1>
+    <p>Reduza a tela para menos de 768px e teste o menu hambúrguer.</p>
+    <p>Status do JavaScript:</p>
+    <div id="status"></div>
+  </main>
+
+  <script>
+    console.log('Script carregado');
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM carregado');
+      
+      const menuToggle = document.getElementById('menuToggle');
+      const navigation = document.getElementById('navigation');
+      const status = document.getElementById('status');
+      
+      console.log('menuToggle:', menuToggle);
+      console.log('navigation:', navigation);
+      
+      status.innerHTML = `
+        menuToggle encontrado: ${!!menuToggle}<br>
+        navigation encontrado: ${!!navigation}
+      `;
+      
+      if (menuToggle && navigation) {
+        menuToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          console.log('Clique no menu hambúrguer');
+          
+          navigation.classList.toggle('active');
+          menuToggle.classList.toggle('active');
+          
+          console.log('Classes do navigation:', navigation.className);
+          console.log('Classes do menuToggle:', menuToggle.className);
+          
+          status.innerHTML += `<br>Menu clicado! Classes: ${navigation.className}`;
+        });
+        
+        console.log('Event listener adicionado');
+      } else {
+        status.innerHTML += '<br>ERRO: Elementos não encontrados!';
+      }
+    });
+  </script>
+</body>
+</html>
