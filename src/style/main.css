@@ -269,7 +269,7 @@ body {
 }
 
 /* Redes sociais dentro da seção sobre mim */
-.sobre-body .redesSociais {
+.sobreRedes .redesSociais {
     display: flex;
     justify-content: center;
     gap: 2.75rem;
@@ -277,7 +277,7 @@ body {
     margin-top: 1.5rem;
 }
 
-.sobre-body .redesSociais a {
+.sobreRedes .redesSociais a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -288,17 +288,17 @@ body {
     background: transparent;
 }
 
-.sobre-body .redesSociais a:hover {
+.sobreRedes .redesSociais a:hover {
     transform: scale(1.1);
 }
 
 /* Cores específicas de hover por rede social */
-.sobre-body .whatsapp:hover   { background: rgba(37,211,102,0.1); }
-.sobre-body .linkedin:hover   { background: rgba(0,119,181,0.1); }
-.sobre-body .instagram:hover  { background: rgba(228, 64, 209, 0.1); }
-.sobre-body .github:hover     { background: rgba(51,51,51,0.1); }
+.sobreRedes .whatsapp:hover   { background: rgba(37,211,102,0.1); }
+.sobreRedes .linkedin:hover   { background: rgba(0,119,181,0.1); }
+.sobreRedes .instagram:hover  { background: rgba(228, 64, 209, 0.1); }
+.sobreRedes .github:hover     { background: rgba(51,51,51,0.1); }
 
-.sobre-body .redesSociais img {
+.sobreRedes .redesSociais img {
     width: 3rem;
     height: 3rem;
     pointer-events: none;
@@ -600,16 +600,16 @@ body {
     }
     
     /* Redes sociais ajustadas para tablets */
-    .sobre-body .redesSociais {
+    .sobreRedes .redesSociais {
         gap: 2rem;
     }
     
-    .sobre-body .redesSociais a {
+    .sobreRedes .redesSociais a {
         width: 4rem;
         height: 4rem;
     }
-    
-    .sobre-body .redesSociais img {
+
+    .sobreRedes .redesSociais img {
         width: 2.5rem;
         height: 2.5rem;
     }
@@ -795,18 +795,18 @@ body {
     }
     
     /* Redes Sociais - ícones menores e lado a lado */
-    .sobre-body .redesSociais {
+    .sobreRedes .redesSociais {
         gap: 1.5rem;
         justify-content: center;
         flex-wrap: wrap;
     }
-    
-    .sobre-body .redesSociais a {
+
+    .sobreRedes .redesSociais a {
         width: 3rem;
         height: 3rem;
     }
-    
-    .sobre-body .redesSociais img {
+
+    .sobreRedes .redesSociais img {
         width: 2rem;
         height: 2rem;
     }
