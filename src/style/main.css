@@ -28,18 +28,18 @@ body {
 }
 
 .header .container {
-    max-width: 1204px;     /* mesma largura do seu artboard no Figma */
-    margin: 0 auto;        /* centra na tela */
+    max-width: 1204px;
+    margin: 0 auto;
     height: 100%;
     display: flex;
-    align-items: center;   /* verticalmente centrado */
-    justify-content: space-between; /* logo à esquerda, nav à direita */
-    padding: 0 40px;       /* espaçamento interno igual ao design */
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 clamp(1rem, 4vw, 2.5rem);  /* padding responsivo */
 }
 
 .logo {
     font-family: "Julius Sans One", sans-serif;
-    font-size: 25px;
+    font-size: clamp(1.1rem, 3vw, 1.6rem);  /* logo responsivo */
     font-weight: 400;
     background: linear-gradient(90deg, #752B71 19.71%, #8D468A 46.37%, #C98CC6 100%);
     background-clip: text;
@@ -49,71 +49,26 @@ body {
 
 .textosHead {
   display: flex;
-  gap: 40px;
-  /* essas propriedades agora só afetam o <nav> */
-}
-
-/* Reset para mobile/tablet */
-@media (max-width: 768px) {
-  .textosHead {
-    display: flex !important;
-    gap: 0 !important;
-  }
+  gap: clamp(1rem, 4vw, 2.5rem);  /* gap responsivo */
 }
 
 .textosHead a {
-  color: #A2591F;                    /* sua cor */
+  color: #A2591F;
   font-family: "Instrument Sans", sans-serif;
-  font-size: 20px;
+  font-size: clamp(0.9rem, 2.5vw, 1.25rem);  /* fonte responsiva */
   font-weight: 400;
   text-transform: lowercase;
-  text-decoration: none;             /* remove o sublinhado */
+  text-decoration: none;
   cursor: pointer;
+  white-space: nowrap;  /* evita quebra de linha */
 }
 
 .textosHead a:hover {
   color: #8D468A; /* opcional: muda a cor ao passar o mouse */
 }
 
-/* Botão hambúrguer */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 2rem;
-  height: 2rem;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 10000;
-}
-
-.hamburger-line {
-  width: 2rem;
-  height: 0.25rem;
-  background: #A2591F;
-  border-radius: 0.125rem;
-  transition: all 0.3s linear;
-  position: relative;
-  transform-origin: 1px;
-}
-
-.menu-toggle.active .hamburger-line:nth-child(1) {
-  transform: rotate(45deg);
-}
-
-.menu-toggle.active .hamburger-line:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.active .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg);
-}
-
 /* Melhoria na acessibilidade - remove animações se preferido pelo usuário */
 @media (prefers-reduced-motion: reduce) {
-  .hamburger-line,
   .textosHead {
     transition: none;
   }
@@ -594,46 +549,9 @@ body {
 
 /* Tablets */
 @media (max-width: 768px) {
-    /* Header responsivo para tablets */
+    /* Header mais compacto para tablets */
     .header .container {
-        padding: 0 1.25rem;
-    }
-    
-    .menu-toggle {
-        display: flex;
-    }
-    
-    .textosHead {
-        display: flex !important;
-        position: absolute !important;
-        top: 100% !important;
-        left: 0 !important;
-        right: 0 !important;
-        background: #D9D9D9 !important;
-        flex-direction: column !important;
-        padding: 1rem !important;
-        box-shadow: 0 4px 4px rgba(0,0,0,0.25) !important;
-        z-index: 10001 !important;
-        max-height: 0 !important;
-        overflow: hidden !important;
-        opacity: 0 !important;
-        transition: all 0.3s ease !important;
-    }
-    
-    .header .textosHead.active {
-        max-height: 300px !important;
-        opacity: 1 !important;
-    }
-    
-    .textosHead a {
-        font-size: 1.1rem;
-        padding: 0.75rem 0;
-        border-bottom: 1px solid rgba(162, 89, 31, 0.2);
-        text-align: center;
-    }
-    
-    .textosHead a:last-child {
-        border-bottom: none;
+        padding: 0 1rem;
     }
 
     .intro-content {

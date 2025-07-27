@@ -32,13 +32,6 @@
     <div class="container">
         <span class="logo">LUISA LEIRIA</span>
         
-        <!-- Botão hambúrguer para mobile -->
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </button>
-        
         <nav class="textosHead" id="navigation">
         <a href="#home">home</a>
         <a href="#sobre">sobre mim</a>
@@ -187,7 +180,9 @@
           </p>
         </div>
         <div class="imagem">
-            <img src="./src/images/petrobras.png" alt="Projeto 1" class="imagem-com-sombra"/>
+            <a>
+                <img src="./src/images/petrobras.png" alt="Projeto 1" class="imagem-com-sombra"/>
+            </a>
         </div>
       </div>
     </section>
@@ -209,70 +204,5 @@
       <p class="fim">© 2025 Luisa Leiria. Todos os direitos reservados.</p>
     </section>
   </main>
-
-  <!-- JavaScript para menu hambúrguer -->
-  <script>
-    console.log('Script carregado - index.html');
-    
-    document.addEventListener('DOMContentLoaded', function() {
-      console.log('DOM carregado - index.html');
-      
-      const menuToggle = document.getElementById('menuToggle');
-      const navigation = document.getElementById('navigation');
-      
-      console.log('menuToggle encontrado:', !!menuToggle);
-      console.log('navigation encontrado:', !!navigation);
-      
-      if (menuToggle && navigation) {
-        console.log('Adicionando event listener - index.html');
-        
-        menuToggle.addEventListener('click', function(e) {
-          e.preventDefault();
-          console.log('CLIQUE DETECTADO no menu hambúrguer - index.html');
-          
-          navigation.classList.toggle('active');
-          menuToggle.classList.toggle('active');
-          
-          console.log('Classes após toggle:');
-          console.log('navigation.className:', navigation.className);
-          console.log('menuToggle.className:', menuToggle.className);
-          console.log('navigation tem active?', navigation.classList.contains('active'));
-          
-          // Debug do CSS computado
-          const computedStyle = window.getComputedStyle(navigation);
-          console.log('CSS computado:');
-          console.log('display:', computedStyle.display);
-          console.log('maxHeight:', computedStyle.maxHeight);
-          console.log('opacity:', computedStyle.opacity);
-          console.log('visibility:', computedStyle.visibility);
-        });
-        
-        // Fecha o menu quando clica em um link
-        const navLinks = navigation.querySelectorAll('a');
-        console.log('Links encontrados:', navLinks.length);
-        
-        navLinks.forEach(link => {
-          link.addEventListener('click', () => {
-            console.log('Link clicado, fechando menu');
-            navigation.classList.remove('active');
-            menuToggle.classList.remove('active');
-          });
-        });
-        
-        // Fecha o menu quando clica fora dele
-        document.addEventListener('click', function(event) {
-          if (!menuToggle.contains(event.target) && !navigation.contains(event.target)) {
-            console.log('Clique fora, fechando menu');
-            navigation.classList.remove('active');
-            menuToggle.classList.remove('active');
-          }
-        });
-      } else {
-        console.error('ERRO: Elementos não encontrados!');
-        console.error('menuToggle:', menuToggle);
-        console.error('navigation:', navigation);
-      }
-    });
-  </script>
 </body>
 </html>
